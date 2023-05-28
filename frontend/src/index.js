@@ -33,5 +33,3 @@ async function makeRequest(inputValue){
     // console.log(await response.json())
     // console.log(id)
 }
-
-// `youtue-dl --extract-audio ${url_goes_here}`

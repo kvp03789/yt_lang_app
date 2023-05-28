@@ -75,6 +75,14 @@ nav button:hover{
     width: 100%;
 }
 
+#video-submit-button:hover{
+    cursor: pointer
+}
+
+#video-submit-button[disabled]:hover{
+    cursor: not-allowed;
+}
+
 .signup-container{
     background-color: rgba(41, 40, 40, 0.734);
     height: 100vh;

@@ -3,6 +3,7 @@ import getVideoId from "get-video-id";
 export const addVideoPreviewEvent = () => {
     const urlInput = document.getElementById('video-src-input');
     const previewContainer = document.querySelector('#video-frame');
+    const submitButton = document.querySelector("#video-submit-button")
 
     // Event listener for input change
     urlInput.addEventListener('input', () => {
@@ -11,8 +12,10 @@ export const addVideoPreviewEvent = () => {
         console.log(videoId)
         if (videoId) {
         previewContainer.setAttribute("src", `http://www.youtube.com/embed/${videoId}`)
+        submitButton.removeAttribute("disabled")
         } else {
         previewContainer.setAttribute("src", "")
+        submitButton.setAttribute("disabled", "")
         }
     });
 
