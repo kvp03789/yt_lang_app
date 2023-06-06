@@ -140,6 +140,16 @@ nav button:hover{
     color: red;
 }
 
+.transcript-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 50px;
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+
 .transcript-text{
     color: rgb(221, 212, 212)
 }

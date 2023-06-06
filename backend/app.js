@@ -5,7 +5,7 @@ const fs = require('fs')
 const cors = require('cors')
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const openAi = require('./openAiConfig')
 const firebaseConfig = require('./firebaseConfig.js')
 const { initializeApp } = require('firebase/app');
 
