@@ -1,0 +1,191 @@
+[debug] [2023-06-01T05:31:11.064Z] ----------------------------------------------------------------------
+[debug] [2023-06-01T05:31:11.066Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\clayn\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only auth
+[debug] [2023-06-01T05:31:11.066Z] CLI Version:   12.2.1
+[debug] [2023-06-01T05:31:11.066Z] Platform:      win32
+[debug] [2023-06-01T05:31:11.066Z] Node Version:  v18.15.0
+[debug] [2023-06-01T05:31:11.067Z] Time:          Thu Jun 01 2023 00:31:11 GMT-0500 (Central Daylight Time)
+[debug] [2023-06-01T05:31:11.067Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-06-01T05:31:11.132Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-06-01T05:31:11.132Z] > authorizing via signed-in user (clay.nichols@gmail.com)
+[info] i  emulators: Starting emulators: auth {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth"}}
+[debug] [2023-06-01T05:31:11.141Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-06-01T05:31:11.141Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-06-01T05:31:11.141Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-06-01T05:31:11.150Z] [hub] writing locator at C:\Users\clayn\AppData\Local\Temp\hub-ytanki.json
+[info] i  ui: downloading ui-v1.11.6.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.11.6.zip..."}}
+[debug] [2023-06-01T05:31:14.585Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.6.zip 
+[debug] [2023-06-01T05:31:14.927Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.6.zip 200
+[debug] [2023-06-01T05:31:14.927Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.6.zip [stream]
+[debug] [2023-06-01T05:31:15.556Z] Data is 3063444
+[debug] [2023-06-01T05:31:15.556Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-06-01T05:31:15.556Z] [unzip] Processing entry: client\
+[debug] [2023-06-01T05:31:15.556Z] [unzip] mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\
+[debug] [2023-06-01T05:31:15.557Z] [unzip] Entry: client/favicon.ico (compressed_size=2497 bytes, uncompressed_size=7406 bytes)
+[debug] [2023-06-01T05:31:15.557Z] [unzip] Processing entry: client\favicon.ico
+[debug] [2023-06-01T05:31:15.557Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.557Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\favicon.ico
+[debug] [2023-06-01T05:31:15.560Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=7231 bytes, uncompressed_size=7367 bytes)
+[debug] [2023-06-01T05:31:15.560Z] [unzip] Processing entry: client\apple-touch-icon.png
+[debug] [2023-06-01T05:31:15.560Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.560Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\apple-touch-icon.png
+[debug] [2023-06-01T05:31:15.562Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=16987 bytes, uncompressed_size=18186 bytes)
+[debug] [2023-06-01T05:31:15.562Z] [unzip] Processing entry: client\android-chrome-512x512.png
+[debug] [2023-06-01T05:31:15.562Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.562Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\android-chrome-512x512.png
+[debug] [2023-06-01T05:31:15.564Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-06-01T05:31:15.564Z] [unzip] Processing entry: client\assets\
+[debug] [2023-06-01T05:31:15.564Z] [unzip] mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\
+[debug] [2023-06-01T05:31:15.565Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-06-01T05:31:15.565Z] [unzip] Processing entry: client\assets\extensions\
+[debug] [2023-06-01T05:31:15.565Z] [unzip] mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\extensions\
+[debug] [2023-06-01T05:31:15.565Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2023-06-01T05:31:15.565Z] [unzip] Processing entry: client\assets\extensions\default-extension.png
+[debug] [2023-06-01T05:31:15.565Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\extensions
+[debug] [2023-06-01T05:31:15.565Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\extensions\default-extension.png
+[debug] [2023-06-01T05:31:15.567Z] [unzip] Entry: client/assets/index.85584c3f.js (compressed_size=526096 bytes, uncompressed_size=1859818 bytes)
+[debug] [2023-06-01T05:31:15.567Z] [unzip] Processing entry: client\assets\index.85584c3f.js
+[debug] [2023-06-01T05:31:15.567Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets
+[debug] [2023-06-01T05:31:15.567Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\index.85584c3f.js
+[debug] [2023-06-01T05:31:15.576Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-06-01T05:31:15.576Z] [unzip] Processing entry: client\assets\provider-icons\
+[debug] [2023-06-01T05:31:15.576Z] [unzip] mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\
+[debug] [2023-06-01T05:31:15.576Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2023-06-01T05:31:15.576Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2023-06-01T05:31:15.576Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.576Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_oidc.svg
+[debug] [2023-06-01T05:31:15.577Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2023-06-01T05:31:15.577Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2023-06-01T05:31:15.577Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.577Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_yahoo.svg
+[debug] [2023-06-01T05:31:15.578Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2023-06-01T05:31:15.578Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_phone.svg
+[debug] [2023-06-01T05:31:15.578Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.578Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_phone.svg
+[debug] [2023-06-01T05:31:15.579Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2023-06-01T05:31:15.579Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_saml.svg
+[debug] [2023-06-01T05:31:15.579Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.579Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_saml.svg
+[debug] [2023-06-01T05:31:15.580Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2023-06-01T05:31:15.580Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2023-06-01T05:31:15.580Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.580Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_mslive.svg
+[debug] [2023-06-01T05:31:15.581Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2023-06-01T05:31:15.581Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2023-06-01T05:31:15.581Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.581Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_facebook.svg
+[debug] [2023-06-01T05:31:15.582Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2023-06-01T05:31:15.582Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2023-06-01T05:31:15.582Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.582Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_play_games.svg
+[debug] [2023-06-01T05:31:15.582Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2023-06-01T05:31:15.582Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_github.svg
+[debug] [2023-06-01T05:31:15.583Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.583Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_github.svg
+[debug] [2023-06-01T05:31:15.583Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2023-06-01T05:31:15.583Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_apple.svg
+[debug] [2023-06-01T05:31:15.583Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.583Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_apple.svg
+[debug] [2023-06-01T05:31:15.584Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2023-06-01T05:31:15.584Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_google.svg
+[debug] [2023-06-01T05:31:15.584Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.584Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_google.svg
+[debug] [2023-06-01T05:31:15.584Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2023-06-01T05:31:15.584Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_email.svg
+[debug] [2023-06-01T05:31:15.584Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.585Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_email.svg
+[debug] [2023-06-01T05:31:15.585Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2023-06-01T05:31:15.585Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2023-06-01T05:31:15.585Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.585Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_twitter.svg
+[debug] [2023-06-01T05:31:15.586Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2023-06-01T05:31:15.586Z] [unzip] Processing entry: client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2023-06-01T05:31:15.586Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons
+[debug] [2023-06-01T05:31:15.586Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\provider-icons\auth_service_game_center.svg
+[debug] [2023-06-01T05:31:15.586Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-06-01T05:31:15.586Z] [unzip] Processing entry: client\assets\img\
+[debug] [2023-06-01T05:31:15.586Z] [unzip] mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\img\
+[debug] [2023-06-01T05:31:15.587Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2023-06-01T05:31:15.587Z] [unzip] Processing entry: client\assets\img\database.png
+[debug] [2023-06-01T05:31:15.587Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\img
+[debug] [2023-06-01T05:31:15.587Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\img\database.png
+[debug] [2023-06-01T05:31:15.587Z] [unzip] Entry: client/assets/index.b9383ce5.css (compressed_size=37605 bytes, uncompressed_size=321268 bytes)
+[debug] [2023-06-01T05:31:15.587Z] [unzip] Processing entry: client\assets\index.b9383ce5.css
+[debug] [2023-06-01T05:31:15.587Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets
+[debug] [2023-06-01T05:31:15.587Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\index.b9383ce5.css
+[debug] [2023-06-01T05:31:15.589Z] [unzip] Entry: client/assets/index.85584c3f.js.map (compressed_size=1778028 bytes, uncompressed_size=7960238 bytes)
+[debug] [2023-06-01T05:31:15.589Z] [unzip] Processing entry: client\assets\index.85584c3f.js.map
+[debug] [2023-06-01T05:31:15.589Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets
+[debug] [2023-06-01T05:31:15.589Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\assets\index.85584c3f.js.map
+[debug] [2023-06-01T05:31:15.611Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=838 bytes, uncompressed_size=1504 bytes)
+[debug] [2023-06-01T05:31:15.611Z] [unzip] Processing entry: client\safari-pinned-tab.svg
+[debug] [2023-06-01T05:31:15.611Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.611Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\safari-pinned-tab.svg
+[debug] [2023-06-01T05:31:15.612Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=5406 bytes, uncompressed_size=5723 bytes)
+[debug] [2023-06-01T05:31:15.612Z] [unzip] Processing entry: client\mstile-150x150.png
+[debug] [2023-06-01T05:31:15.612Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.612Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\mstile-150x150.png
+[debug] [2023-06-01T05:31:15.612Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2023-06-01T05:31:15.612Z] [unzip] Processing entry: client\browserconfig.xml
+[debug] [2023-06-01T05:31:15.612Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.612Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\browserconfig.xml
+[debug] [2023-06-01T05:31:15.613Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2023-06-01T05:31:15.613Z] [unzip] Processing entry: client\robots.txt
+[debug] [2023-06-01T05:31:15.613Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.613Z] [unzip] Writing file: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\robots.txt
+[debug] [2023-06-01T05:31:15.614Z] [unzip] Entry: client/index.html (compressed_size=1363 bytes, uncompressed_size=3064 bytes)
+[debug] [2023-06-01T05:31:15.614Z] [unzip] Processing entry: client\index.html
+[debug] [2023-06-01T05:31:15.614Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.614Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\index.html
+[debug] [2023-06-01T05:31:15.614Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=757 bytes, uncompressed_size=777 bytes)
+[debug] [2023-06-01T05:31:15.614Z] [unzip] Processing entry: client\favicon-16x16.png
+[debug] [2023-06-01T05:31:15.614Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.614Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\favicon-16x16.png
+[debug] [2023-06-01T05:31:15.615Z] [unzip] Entry: client/manifest.json (compressed_size=246 bytes, uncompressed_size=551 bytes)
+[debug] [2023-06-01T05:31:15.615Z] [unzip] Processing entry: client\manifest.json
+[debug] [2023-06-01T05:31:15.615Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.615Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\manifest.json
+[debug] [2023-06-01T05:31:15.616Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=1175 bytes, uncompressed_size=1175 bytes)
+[debug] [2023-06-01T05:31:15.616Z] [unzip] Processing entry: client\favicon-32x32.png
+[debug] [2023-06-01T05:31:15.616Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.616Z] [unzip] Writing file: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\favicon-32x32.png
+[debug] [2023-06-01T05:31:15.616Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=7602 bytes, uncompressed_size=7834 bytes)
+[debug] [2023-06-01T05:31:15.616Z] [unzip] Processing entry: client\android-chrome-192x192.png
+[debug] [2023-06-01T05:31:15.616Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client
+[debug] [2023-06-01T05:31:15.616Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\client\android-chrome-192x192.png
+[debug] [2023-06-01T05:31:15.617Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2023-06-01T05:31:15.617Z] [unzip] Processing entry: server\
+[debug] [2023-06-01T05:31:15.617Z] [unzip] mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\server\
+[debug] [2023-06-01T05:31:15.617Z] [unzip] Entry: server/server.js (compressed_size=343746 bytes, uncompressed_size=1346374 bytes)
+[debug] [2023-06-01T05:31:15.617Z] [unzip] Processing entry: server\server.js
+[debug] [2023-06-01T05:31:15.617Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\server
+[debug] [2023-06-01T05:31:15.617Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\server\server.js
+[debug] [2023-06-01T05:31:15.621Z] [unzip] Entry: server/server.js.map (compressed_size=289157 bytes, uncompressed_size=1325651 bytes)
+[debug] [2023-06-01T05:31:15.621Z] [unzip] Processing entry: server\server.js.map
+[debug] [2023-06-01T05:31:15.621Z] [unzip] else mkdir: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\server
+[debug] [2023-06-01T05:31:15.621Z] [unzip] deflating: C:\Users\clayn\.cache\firebase\emulators\ui-v1.11.6\server\server.js.map
+[debug] [2023-06-01T05:31:15.626Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-06-01T05:31:15.626Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-06-01T05:31:15.626Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\clayn\\.cache\\firebase\\emulators\\ui-v1.11.6\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\clayn\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.6\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-06-01T05:31:15.706Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-06-01T05:31:15.706Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI        │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth │
+└────────────────┴────────────────┴────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-06-01T06:45:44.902Z] Received signal SIGHUP 1

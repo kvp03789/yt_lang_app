@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const fs = require('fs')
 const cors = require('cors')
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -30,6 +31,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function checkAndMakeAudioFileDirectory(req, res, next){
+  const directoryPath = path.join(__dirname, '/public/downloaded_audio'); 
+  console.log(directoryPath)
+  if (!fs.existsSync(directoryPath)) {
+    fs.mkdirSync(directoryPath);
+    console.log('Directory created successfully.');
+  } else {
+    console.log('Directory already exists.');
+  }
+  next()
+})
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -37,6 +50,8 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -48,5 +63,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

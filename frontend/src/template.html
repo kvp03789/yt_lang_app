@@ -8,7 +8,18 @@
 </head>
 <body>
     <nav>
-
+        <div class="user-login-buttons-div">
+            <button class="nav-link login-link ">
+                login
+            </button>
+            <button class="nav-link signup-link ">
+                signup
+            </button>
+            
+        </div>
+        <div>
+            <button class="user-acc-button hidden"></button>
+        </div>
     </nav>
     <main>
         <div class="title-container">
@@ -20,30 +31,35 @@
         </div>
         <div class="video-url-form-container">
             <input type="text" placeholder="enter video url" id="video-src-input" name="video-src">
-            <button id="video-submit-button" disabled>Get Transcript!</button>
-        </div>    
+            <button id="video-submit-button">Get Transcript!</button>
+        </div>
+        <div class="transcript-container"></div>    
     </main> 
     <div class="signup-container hidden">
         <div class="form-container">
             <form class="signup-form">
                 <div class="form-section">
-                    <label for="email">Email Address:</label>
-                    <input name="email" type="email">
+                    <label for="signup-email">Email Address:</label>
+                    <input name="email" id="signup-email" type="email">
                 </div>
                 <div class="form-section">
-                    <label for="username">Username:</label>
-                    <input name="username" type="username">
+                    <label for="signup-username">Username:</label>
+                    <input name="username" id="signup-username" type="username">
                 </div>
                 <div class="form-section">
-                    <label for="password">Password:</label>
-                    <input name="password" type="password">
+                    <label for="signup-password">Password:</label>
+                    <input name="password" id="signup-password" type="password">
                 </div>
                 <div class="form-section">
                     <label for="password_again">Verify Password:</label>
                     <input name="password_again" type="password">
                 </div>
                 <div class="form-section">
-                    <button type="submit">Submit</button>
+                    <button type="submit"id="signup-submit-button">Submit</button>
+                    <button id="cancel-signup-button">Cancel Button</button>
+                </div>
+                <div class="form-section">
+                   <p class="signup-error-p error"></span>
                 </div>
             </form>
         </div>
@@ -52,15 +68,19 @@
         <div class="form-container">
             <form class="login-form">
                 <div class="form-section">
-                    <label for="username">Username:</label>
-                    <input name="username" type="username">
+                    <label for="email-input">Email:</label>
+                    <input name="email" id="email-input" type="email">
                 </div>
                 <div class="form-section">
-                    <label for="password">Password:</label>
-                    <input name="password" type="password">
+                    <label for="password-input">Password:</label>
+                    <input name="password" id="password-input" type="password">
                 </div>
                 <div class="form-section">
-                    <button type="submit">Login</button>
+                    <button type="submit" id="login-submit-button">Login</button>
+                    <button id="cancel-login-button">Cancel Button</button>
+                </div>
+                <div class="form-section">
+                    <p class="login-error-p error"></span>
                 </div>
             </form>
         </div>

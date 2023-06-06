@@ -135,3 +135,11 @@ nav button:hover{
     transform: scaleX(0);
     transition: transform 250ms ease-in-out 200ms;
 }
+
+.error{
+    color: red;
+}
+
+.transcript-text{
+    color: rgb(221, 212, 212)
+}
