@@ -13,16 +13,20 @@ module.exports = {
                 test: /\.html$/,
                 use: ['html-loader']
             },
+            // {
+            //     test: /\.(svg|png|jpg|gif)$/,
+            //     use: {
+            //         loader: 'file-loader',
+            //         options: {
+            //             name: "/src/assets/[name].[hash].[ext]",
+            //             outputPath: "assets"
+            //         }
+            //     }
+            // }
             {
-                test: /\.(svg|png|jpg|gif)$/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: "[name].[hash].[ext]",
-                        outputPath: "assets"
-                    }
-                }
-            }
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/,
+                type: 'asset/resource'
+             }
         ]
     },
     plugins: [

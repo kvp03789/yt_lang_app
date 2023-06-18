@@ -5,6 +5,8 @@ const fs = require('fs')
 const path = require('path')
 require('dotenv').config()
 const assemblyAiUpload = require('./transcribe')
+const openai = require('../openAiConfig')
+require('dotenv').config()
 
 //firebase imports:
 const { initializeApp } = require('firebase/app');
@@ -14,6 +16,22 @@ const firebaseConfig = require('../firebaseConfig.js')
 //firebase setup
 const firebaseApp = initializeApp(firebaseConfig);
 const storage = getStorage(firebaseApp);
+
+const generateCards = async (language, transcription) => {
+  const cards =  await openai.createChatCompletion({
+    model: 'gpt-3.5-turbo',
+    messages: [
+      {
+        role: 'user',
+        content: `pick out 20 key words in the following video transcription, translate them to ${language}, then return them as a JSON object 
+        that could be easily made into flashcards for language learners, where the keys are the english version of the word and the value the translated word: ${transcription}`
+      }
+    ],
+    max_tokens: 300 
+  })
+  console.log('what chat-gpt responds with: ', cards.data.choices[0].message)
+  return cards.data.choices[0].message.content
+}
 
 
 async function saveOneFile(fileName){
@@ -76,11 +94,13 @@ router.post('/download', async function(req, res, next){
     const downloadedFilename = `${id}.${ext}`;
     const filePath = path.join(__dirname, '/../public/downloaded_audio')
     const resolvedFilePath = path.resolve(filePath, downloadedFilename)
-    console.log(`Downloaded file: ${downloadedFilename}`);
+    console.log(`Downloaded file: ${resolvedFilePath}`);
     //~~function to save file to cloud~~//
     await saveOneFile(`${filePath}/${id}.${ext}`)
-    const transcript = await assemblyAiUpload(resolvedFilePath)
-    res.json({file: downloadedFilename, transcript })
+    const transcript = await assemblyAiUpload(resolvedFilePath, process.env.ASSEMBLY_API_KEY)
+    const generatedCards = await generateCards('french', transcript )
+    //res.json({file: downloadedFilename, transcript, cards: generatedCards })
+    res.json(generatedCards)
   })
   .catch((error) => {
     console.error(error.message);

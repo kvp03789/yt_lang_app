@@ -1,18 +1,7 @@
-// Welcome to AssemblyAI! Get started with the API by transcribing
-// a file using JavaScript.
-//
-// In this example, we'll transcribe a local file. Get started by
-// downloading the snippet, then update the 'filename' variable
-// to point to the local path of the file you want to upload and
-// use the API to transcribe.
-//
-// IMPORTANT: Update line 100 to point to a local file.
-//
-// Have fun!
-    
+
+require('dotenv').config()
 const fs = require("fs");
 
-// Your API token is already set in this variable
 const API_TOKEN = process.env.ASSEMBLY_API_KEY;
 
 // Function to upload a local file to the AssemblyAI API
@@ -94,7 +83,7 @@ async function transcribeAudio(api_token, audio_url) {
 }
 
 // Upload a file and create a transcript using the AssemblyAI API
-const assemblyAiUpload = async (path) => {
+const assemblyAiUpload = async (path, api_token) => {
   console.log("Welcome to AssemblyAI!");
 
   // -----------------------------------------------------------------------------
@@ -103,7 +92,7 @@ const assemblyAiUpload = async (path) => {
   // You may also remove the upload step and update the 'audio_url' parameter in the
   // 'transcribeAudio' function to point to a remote audio or video file.
   // -----------------------------------------------------------------------------
-  const uploadUrl = await upload_file(API_TOKEN, path);
+  const uploadUrl = await upload_file(api_token, path);
 
   // If the upload fails, log an error and return
   if (!uploadUrl) {
