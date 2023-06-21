@@ -20,11 +20,13 @@ export const initializeDom = (globalUser) => {
      videoSubmitEvent(globalUser)
      console.log('the initial globalUserState is: ', globalUser)
 }
-
+window.onload = console.log('environmen set to: ', process.env.NODE_ENV)
 getApiKeyAndInitializeFirebase();
 window.onload = monitorAuthState() //<--this monitors the auth state and 
                                    //changes navbar accordingly
 // window.onload = initializeDom(globalUser)
+
+
 
 
 

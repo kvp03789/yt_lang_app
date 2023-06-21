@@ -94,7 +94,12 @@ export const videoSubmitEvent = (globalUserState) => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({url: videoInput.value, language: languageInput.value, ...getVideoId(videoInput.value)})
         }
-        const response = await fetch('http://localhost:5001/download', options)
+        const response = await fetch(
+            process.env.NODE_ENV === 'development'
+            ? 'http://localhost:5001/download'
+            : `${RAILWAY_SERVICE_cartami_backend_URL}`, 
+            options
+            )
         const json = await response.json()
         console.log('this is the json: ', json)
         const deckArray = formatData(JSON.parse(json))
