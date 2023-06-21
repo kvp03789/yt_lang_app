@@ -18,6 +18,11 @@ body{
     align-items: center;
 }
 
+.title-h1{
+    color: white;
+    display: block;
+}
+
 input{
     width: 282px;
     height: 30px;
@@ -134,6 +139,7 @@ nav button:not(.user-acc-button):hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-bottom: 50px;
     margin-top: 50px;
 }
@@ -158,6 +164,10 @@ nav button:not(.user-acc-button):hover{
 
 #video-submit-button[disabled]:hover{
     cursor: not-allowed;
+}
+
+#languages{
+    font-size: 1.5rem;
 }
 
 .signup-container{

@@ -84,7 +84,7 @@ export const buildNoUserNav = () => {
 export const videoSubmitEvent = (globalUserState) => {
     const videoSubmitButton = document.querySelector(".video-submit-button")
     const videoInput = document.querySelector("#video-src-input")
-
+    const languageInput = document.querySelector('#languages')
     videoSubmitButton.setAttribute('disabled', '')
 
     videoSubmitButton.addEventListener("click", async (e) => {
@@ -92,7 +92,7 @@ export const videoSubmitEvent = (globalUserState) => {
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({url: videoInput.value, ...getVideoId(videoInput.value)})
+            body: JSON.stringify({url: videoInput.value, language: languageInput.value, ...getVideoId(videoInput.value)})
         }
         const response = await fetch('http://localhost:5001/download', options)
         const json = await response.json()
@@ -273,6 +273,19 @@ export const displayVideoFrameAndInput = () => {
     const videoUrlInput = createElement("input")
     const videoSubmitButton = createElement("button", ["video-submit-button"])
     const testButton = createElement("button", ["test-button"])
+    const dropDownLanguageSelection = createElement("select", ["language-select"])
+    const frenchOption = createElement("option")
+    const spanishOption = createElement("option")
+    const germanOption = createElement("option")
+
+    dropDownLanguageSelection.setAttribute("name", "languages")
+    dropDownLanguageSelection.setAttribute("id", "languages")
+    frenchOption.setAttribute("value", "French")
+    frenchOption.innerText = 'French'
+    spanishOption.setAttribute("value", "Spanish")
+    spanishOption.innerText = 'Spanish'
+    germanOption.setAttribute("value", "German")
+    germanOption.innerText = 'German'
 
     iframe.setAttribute("id", "video-frame")
     iframe.setAttribute("width", "420")
@@ -283,7 +296,8 @@ export const displayVideoFrameAndInput = () => {
     videoSubmitButton.innerText = 'get transcript!'
     testButton.innerText = 'TEST BUTTON'
 
-    formContainer.append(videoUrlInput, videoSubmitButton)
+    dropDownLanguageSelection.append(frenchOption, spanishOption, germanOption)
+    formContainer.append(videoUrlInput, dropDownLanguageSelection, videoSubmitButton)
     videoFrame.append(iframe)
     main.append(videoFrame, formContainer)
 

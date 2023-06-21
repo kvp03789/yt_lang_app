@@ -16,6 +16,7 @@ const firebaseConfig = require('../firebaseConfig.js')
 //firebase setup
 const firebaseApp = initializeApp(firebaseConfig);
 const storage = getStorage(firebaseApp);
+const storageRef = ref(storage)
 
 const generateCards = async (language, transcription) => {
   const cards =  await openai.createChatCompletion({
@@ -51,7 +52,6 @@ async function saveOneFile(fileName){
     console.log('File uploaded to Firebase Storage.');
     //return fileName
   });
-
 }
 
 
@@ -66,6 +66,7 @@ function executeCommand(command) {
         reject(new Error(`yt-dlp encountered an error: ${stderr}`));
         return;
       }
+      //resolve(stdout.trim());
       resolve(stdout.trim());
     });
   });
@@ -85,7 +86,7 @@ router.get('/api/key', (req, res, next) => {
 router.post('/download', async function(req, res, next){
   console.log('saving file....here\'s the request: ', {...req.body})
   //checkAndMakeAudioFileDirectory()
-  const { id, url } = req.body
+  const { id, url, language } = req.body
   const ext = 'mp3'
   const command = `yt-dlp -x -o /public/downloaded_audio/${id} --audio-format ${ext} ${url}`
   
@@ -98,13 +99,14 @@ router.post('/download', async function(req, res, next){
     //~~function to save file to cloud~~//
     await saveOneFile(`${filePath}/${id}.${ext}`)
     const transcript = await assemblyAiUpload(resolvedFilePath, process.env.ASSEMBLY_API_KEY)
-    const generatedCards = await generateCards('french', transcript )
-    //res.json({file: downloadedFilename, transcript, cards: generatedCards })
+    const generatedCards = await generateCards(language, transcript )
     res.json(generatedCards)
   })
   .catch((error) => {
     console.error(error.message);
   });
+
+  
 })
 
 module.exports = router;
