@@ -113,7 +113,13 @@ export const monitorAuthState = async () => {
             return null
         }
     })
+}
 
+export const checkAuthState = async () => {
+    return onAuthStateChanged(auth, user => {
+        if (user)return user
+        else return null
+    })
 }
 
 

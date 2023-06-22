@@ -8,9 +8,14 @@ import { buildNav,
      displayVideoFrameAndInput
      } from "./domStuff"
 import { addVideoPreviewEvent } from "./videoPreviewScript"
-import { getApiKeyAndInitializeFirebase, monitorAuthState } from "./auth"
+import { getApiKeyAndInitializeFirebase, monitorAuthState, checkAuthState } from "./auth"
 
-// const globalUser = await monitorAuthState()
+// const globalUser = {}
+
+// async function initializeGloalUser(){
+//      console.log("this is the global user from the initGlobaalUser function: ", globalUser)
+//      return await {...checkAuthState()}
+// }
 
 export const initializeDom = (globalUser) => {
      addSignupAndLoginSubmitButtonEvents()
@@ -24,8 +29,7 @@ window.onload = console.log('environmen set to: ', process.env.NODE_ENV)
 getApiKeyAndInitializeFirebase();
 window.onload = monitorAuthState() //<--this monitors the auth state and 
                                    //changes navbar accordingly
-// window.onload = initializeDom(globalUser)
-
+// window.onload = initializeGloalUser()
 
 
 

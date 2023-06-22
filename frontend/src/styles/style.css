@@ -21,6 +21,7 @@ body{
 .title-h1{
     color: white;
     display: block;
+    text-shadow: 1px 1px 2px black;
 }
 
 input{
@@ -158,11 +159,12 @@ nav button:not(.user-acc-button):hover{
     width: 100%;
 }
 
-#video-submit-button:hover{
-    cursor: pointer
+.video-submit-button:hover{
+    cursor: pointer;
+    background-color: rgb(182, 240, 255);
 }
 
-#video-submit-button[disabled]:hover{
+.video-submit-button[disabled]:hover{
     cursor: not-allowed;
 }
 
@@ -324,8 +326,59 @@ iframe{
     padding-left: 20px;
 }
 
+.deck-saved-message{
+    color: rgb(160, 225, 255);
+    font-size: 1.2rem;
+}
 
+.back-to-transcription-button:hover{
+    cursor: pointer;
+    background-color: rgb(182, 240, 255);
+    transform: scale(115%);
+}
 
+.back-to-transcription-button{
+    transition: transform 200ms ease-in-out
+}
+
+.deck-list-container{
+    background-color: white;
+    border: solid 4px black;
+    border-radius: 10px;
+    width: 75%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.deck-name-container{
+
+}
+
+.deck-name-container:hover{
+    cursor:default;
+}
+
+.deck-name-h3{
+    color: black;
+    transition: transform 300ms;
+}
+
+.deck-name-h3:hover{
+    cursor: pointer;
+    color:rgb(108, 108, 108);
+    transform: scale(110%);
+}
+
+.deck-review-title{
+    color: rgb(249, 237, 217);
+    text-shadow: 1px 1px 2px black;
+}
+
+.deck-review-title > span{
+    color:rgb(129, 255, 236);
+    text-shadow: 1px 1px 2px black;
+}
 
 .hidden{
     /* transform: scaleY(0); */

@@ -6,7 +6,7 @@ import LoadingGif from './assets/loading.gif'
 import CartamiLogo from './assets/cartami_mk4.png'
 import RightArrow from './assets/svg/right-arrow.png'
 import { db } from "./auth";
-import { collection, getDoc, setDoc, set } from "firebase/firestore";
+import { doc, updateDoc, getDoc, setDoc, set } from "firebase/firestore";
 
 export const buildUserNav = (userObject) => {
     const navElement = document.querySelector("nav");
@@ -49,6 +49,14 @@ export const buildUserNav = (userObject) => {
 
     userAccountDisplayContainer.addEventListener("click", () => {
         showUserDropDown()
+    })
+
+    profileButton.addEventListener("click", () => {
+        showUserProfile(userObject)
+    })
+
+    savedDecksButton.addEventListener("click", () => {
+        showSavedDecks(userObject)
     })
 
     cancelLoginButton.addEventListener("click", (e) => opaqueContainerLoginEvent(e))
@@ -106,7 +114,8 @@ export const videoSubmitEvent = (globalUserState) => {
         //INIT THE CARD DECK OBJECT
         // initDeck(deckArray)
         cardDeck.deck = deckArray
-        displayFlashCardsDom(cardDeck.deck[0].front, cardDeck.deck[0].back, globalUserState)
+        cardDeck.deckName = `${videoInput.value}`
+        displayFlashCardsDom(cardDeck.deck[0].front, cardDeck.deck[0].back, globalUserState, cardDeck.deckName)
     })
 }
 
@@ -189,7 +198,7 @@ export const displayLoadingGif = () => {
     main.append(loadingImage)
 }
 
-export const displayFlashCardsDom = (dataFront, dataBack, globalUserState) => {
+export const displayFlashCardsDom = (dataFront, dataBack, globalUserState, deckName) => {
     const main = document.querySelector("main");
     clearChildElements(main)
 
@@ -223,19 +232,37 @@ export const displayFlashCardsDom = (dataFront, dataBack, globalUserState) => {
     addFlashCardButtonEvents()
 
     if(globalUserState !== null ){
-        const saveDeckButton = createElement("button", ["card-nav-button"])
-        saveDeckButton.innerText = 'save this deck!'
-        buttonContainer.append(saveDeckButton)
+        const deckNameInput = createElement("input", ["deck-name-input", "hidden"])
+        const startSaveDeckButton = createElement("button", ["card-nav-button"])
+        const saveDeckButton = createElement("button", ["card-nav-button", "hidden"])
+
+        deckNameInput.setAttribute("placeholder", "enter a name for this deck")
+        startSaveDeckButton.innerText = 'save this deck!'
+        saveDeckButton.innerText = 'save!'
+        buttonContainer.append(startSaveDeckButton, deckNameInput, saveDeckButton)
+
+        //event to show hidden button and input
+        startSaveDeckButton.addEventListener("click", () => {
+            saveDeckButton.classList.remove("hidden")
+            deckNameInput.classList.remove("hidden")
+        })
         //event to save deck to current user's collection in database
         saveDeckButton.addEventListener("click", async () => {
             const deckToSave = cardDeck.deck.map(x => x)
-            const parentDocRef = await getDoc(db, "users", `${globalUserState.uid}`)
-            // const parentDocRef = await db.collection("users").doc(`${globalUserState.uid}`)
-            const subCollectionRef = await parentDocRef.collection("savedDecksSubCollection")
-            const savedSubCollection = await subCollectionRef.setDoc({cards: [...deckToSave]})
-            console.log('document saved to subcollection ', savedSubCollection)
-
+            const parentDocRef = doc(db, "users", `${globalUserState.uid}`)
+            const parentDocSnap = await getDoc(parentDocRef)
+            const updated = await updateDoc(parentDocRef, {
+                savedDecks: [{deckName: deckNameInput.value ? deckNameInput.value : deckName, deck: [...deckToSave]}]
+            })
+            saveDeckButton.classList.add("hidden")
+            deckNameInput.classList.add("hidden")
+            startSaveDeckButton.classList.add("hidden")
+            const deckSavedMessage = createElement("p", ["deck-saved-message"])
+            deckSavedMessage.innerText = 'deck saved for later review :3'
+            buttonContainer.append(deckSavedMessage)
         })
+
+
     }
     else{
         const alertPara = createElement("p", ["alert-paragraph"])
@@ -318,4 +345,97 @@ const initDeck = (data) => {
 
     console.log(cardDeck)
     //cardDeck.populateFirstCards()
+}
+
+function showUserProfile(userObject){
+    const main = document.querySelector("main")
+    clearChildElements(main)
+    const userHeader = createElement("h1")
+    userHeader.innerText = `${userObject.email}`
+
+    main.append(userHeader)
+}
+
+async function showSavedDecks(userObject){
+    const main = document.querySelector("main")
+    clearChildElements(main)
+    const savedDecksHeader = createElement("h1")
+    const deckListContainer = createElement("div", ["deck-list-container"])
+
+    const parentDocRef = doc(db, "users", `${userObject.uid}`)
+    const parentDocSnap = await getDoc(parentDocRef)
+    const savedDecksArray = parentDocSnap.data()
+    console.log('YO HERES THE DATA TM: ', savedDecksArray)
+
+    savedDecksArray.savedDecks.forEach(deck => {
+        const deckNameContainer = createElement("div", ["deck-name-container"])
+        const deckName = createElement("h3", ["deck-name-h3"])
+        deckName.innerText = deck.deckName
+        deckNameContainer.append(deckName)
+        deckListContainer.append(deckNameContainer)
+        deckNameContainer.addEventListener("click", () => {
+            displayUserReviewDeck(deck.deck, deck.deckName)
+            })
+        })
+    savedDecksHeader.innerText = `saved decks for ${userObject.email}`
+    main.append(savedDecksHeader, deckListContainer)
+}
+
+function displayUserReviewDeck(deckArray, deckTitle){
+    console.log(deckArray)
+    const tempCardDeck = {
+        deckName: '',
+    
+        deck: [...deckArray],
+            //format like this: {front: 'question1', back: 'answer1'}
+    
+        counter: 0,
+    
+        showNextCard(){
+            console.log(this.deck)
+            this.counter++;
+            if(this.counter > tempCardDeck.deck.length - 1){
+                this.counter = 0;
+            }
+            const frontCardPara = document.querySelector('.front-card-text')
+            const backCardPara = document.querySelector('.back-card-text')
+            frontCardPara.innerText = `${this.deck[this.counter].front}`;
+            backCardPara.innerText = `${this.deck[this.counter].back}`
+        }
+    }
+
+    const main = document.querySelector("main");
+    clearChildElements(main)
+
+    const deckReviewTitle = createElement("h1", ["deck-review-title"])
+    const cardContainer = createElement("div", ["card"])
+    const cardFront = createElement("div", ["card-front", "card-face"])
+    const cardBack = createElement("div", ["card-back",  "card-face"])
+    const frontCardText = createElement("p", ["front-card-text"])
+    const backCardText = createElement("p", ["back-card-text"])
+    const buttonContainer = createElement("div", ["card-button-container"])
+    const nextCardButton = createElement("button", ["card-nav-button"])
+    const showAnswerButton = createElement("button", ["card-nav-button"])
+    const homeButton = createElement("button", ["back-to-transcription-button"])
+    const homeButtonContainer = createElement("div", ["home-button-container"])
+
+    frontCardText.innerText = `${tempCardDeck.deck[0].front}`;
+    backCardText.innerText = `${tempCardDeck.deck[0].back}`
+
+    nextCardButton.setAttribute("id", "next-card-button")
+    showAnswerButton.setAttribute("id", "show-answer-button")
+    nextCardButton.innerText = 'next card'
+    showAnswerButton.innerText = 'show answer'
+    homeButton.innerText = 'transcribe new video'
+    deckReviewTitle.innerText = `currently reviewing deck "${deckTitle}"`
+
+    cardFront.append(frontCardText)
+    cardBack.append(backCardText)
+    cardContainer.append(cardFront, cardBack)
+    buttonContainer.append(nextCardButton, showAnswerButton)
+    homeButtonContainer.append(homeButton)
+    main.append(deckReviewTitle, cardContainer, buttonContainer, homeButtonContainer)
+
+    nextCardButton.addEventListener("click", tempCardDeck.showNextCard)
+    homeButton.addEventListener("click", displayVideoFrameAndInput)
 }

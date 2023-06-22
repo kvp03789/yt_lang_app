@@ -10,6 +10,8 @@ const frontCardPara = document.querySelector('.front-card-text')
 const backCardPara = document.querySelector('.back-card-text')
 
 export const cardDeck = {
+    deckName: '',
+
     deck: [],
         //format like this: {front: 'question1', back: 'answer1'}
 
