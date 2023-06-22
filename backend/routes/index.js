@@ -80,7 +80,8 @@ router.get('/', function(req, res, next) {
 
 router.get('/api/key', (req, res, next) => {
   //res.send(`${process.env.FB_KEY}`)
-  res.setHeader('Access-Control-Allow-Origin', 'https://cartami-frontend.onrender.com/')
+  //res.setHeader('Access-Control-Allow-Origin', 'https://cartami-frontend.onrender.com/')
+  console.log(res.header)
   res.json({key: `${process.env.FB_KEY}`})
 })
 

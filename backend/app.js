@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(cors({
-  origin: 'https://cartami-frontend.onrender.com'
+  origin: ['http://localhost:8080','https://cartami-frontend.onrender.com','http://cartami-frontend.onrender.com']
 }))
 
 app.use(logger('dev'));
