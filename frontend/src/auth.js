@@ -21,7 +21,9 @@ export const getApiKeyAndInitializeFirebase = async () => {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
     }
-    const promiseData = await fetch('http://localhost:5001/api/key', options)
+    const promiseData = await fetch(process.env.NODE_ENV === 'development'
+    ? 'http://localhost:5001/api/key'
+    : 'cartami-backend.up.railway.app/api/key', options)
     const jsonData = await promiseData.json()
 
     console.log('firebase api key: ', jsonData)
