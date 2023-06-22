@@ -11,7 +11,7 @@ export const addVideoPreviewEvent = () => {
         const videoId = getVideoId(youtubeUrl).id;
         console.log(videoId)
         if (videoId) {
-        previewContainer.setAttribute("src", `http://www.youtube.com/embed/${videoId}`)
+        previewContainer.setAttribute("src", `https://www.youtube.com/embed/${videoId}`)
         submitButton.removeAttribute("disabled")
         } else {
         previewContainer.setAttribute("src", "")
