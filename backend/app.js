@@ -26,10 +26,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(cors({
-  origin: ['35.160.120.126',
-    '44.233.151.27',
-    '34.211.200.85']
+  origin: 'https://cartami-frontend.onrender.com'
 }))
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
