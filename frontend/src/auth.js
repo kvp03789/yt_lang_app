@@ -24,7 +24,7 @@ export const getApiKeyAndInitializeFirebase = async () => {
     }
     const promiseData = await fetch(process.env.NODE_ENV === 'development'
     ? 'http://localhost:5001/api/key'
-    : 'https://157.230.210.69:5001/api/key', options)
+    : 'http://157.230.210.69:5001/api/key', options)
     const jsonData = await promiseData.json()
 
     console.log('firebase api key: ', jsonData)
