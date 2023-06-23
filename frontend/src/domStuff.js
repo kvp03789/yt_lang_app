@@ -105,7 +105,7 @@ export const videoSubmitEvent = (globalUserState) => {
         const response = await fetch(
             process.env.NODE_ENV === 'development'
             ? 'http://localhost:5001/download'
-            : 'https://157.230.210.69:443/download', 
+            : 'http://157.230.210.69:443/download', 
             options
             )
         const json = await response.json()
